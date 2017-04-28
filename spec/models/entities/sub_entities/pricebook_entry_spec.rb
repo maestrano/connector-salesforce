@@ -6,6 +6,7 @@ describe Entities::SubEntities::PricebookEntry do
 
     it { expect(subject.external?).to be(true) }
     it { expect(subject.entity_name).to eql('PricebookEntry') }
+    it { expect(subject.currency_check_fields).to eql(%w(sale_price purchase_price)) }
     it { expect(subject.object_name_from_external_entity_hash({'Product2Id' => '67AB'})).to eql('Price for 67AB') }
   end
 
@@ -69,7 +70,7 @@ describe Entities::SubEntities::PricebookEntry do
         }.with_indifferent_access
       }
 
-      it { expect(subject.map_to('item',sf_hash)).to eql(output_hash) }
+      it { expect(subject.map_to('Item',sf_hash)).to eql(output_hash) }
     end
   end
 end

@@ -5,7 +5,7 @@ describe Entities::SubEntities::Item do
     subject { Entities::SubEntities::Item }
 
     it { expect(subject.external?).to be(false) }
-    it { expect(subject.entity_name).to eql('item') }
+    it { expect(subject.entity_name).to eql('Item') }
     it { expect(subject.object_name_from_connec_entity_hash({'reference' => 'M123', 'name' => 'Mno'})).to eql('[M123] Mno') }
   end
 
@@ -78,7 +78,8 @@ describe Entities::SubEntities::Item do
         let(:output_hash) {
           {
             ProductCode: 'GC1040',
-            Name: 'GenWatt Diesel 200kW'
+            Name: 'GenWatt Diesel 200kW',
+            IsActive: true
           }.with_indifferent_access
         }
 

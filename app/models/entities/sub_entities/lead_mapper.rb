@@ -13,6 +13,7 @@ class Entities::SubEntities::LeadMapper
     output[:is_lead] = true
     output[:is_customer] = false
     output[:lead_status] = input[:Status]
+    output[:opts] = { attach_to_organization: input['Company']} unless input['Company'].blank?
     output
   end
 
@@ -28,6 +29,7 @@ class Entities::SubEntities::LeadMapper
   map from('address_work/billing/country'), to('Country')
 
   map from('email/address'), to('Email')
+  map from('website/url'), to('Website')
 
   map from('phone_work/landline'), to('Phone')
   map from('phone_work/mobile'), to('MobilePhone')

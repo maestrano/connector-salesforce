@@ -2,11 +2,14 @@ require 'spec_helper'
 
 describe Entities::Opportunity do
 
+  before { allow(Maestrano::Connector::Rails::External).to receive(:timezone).and_return('UTC') }
+
   describe 'class methods' do
     subject { Entities::Opportunity }
 
     it { expect(subject.connec_entity_name).to eql('Opportunity') }
     it { expect(subject.external_entity_name).to eql('Opportunity') }
+    it { expect(subject.currency_check_fields).to eql(%w(amount)) }
     it { expect(subject.object_name_from_connec_entity_hash({'name' => 'Mno'})).to eql('Mno') }
     it { expect(subject.object_name_from_external_entity_hash({'Name' => 'Mno'})).to eql('Mno') }
   end
@@ -66,9 +69,12 @@ describe Entities::Opportunity do
 
       let (:mapped_sf) {
         {
+          :opts => {
+            :attached_to_org => "0012800000C3cS9AAJ"
+          },
           :id => [{:id=>"00628000006HPkiAAG", :provider=>organization.oauth_provider, :realm=>organization.oauth_uid}],
           :amount=>{:total_amount=>60000.0},
-          :expected_close_date=>Date.parse('2013-11-07T00:00:00').to_time.iso8601,
+          :expected_close_date=>'2013-11-07T23:59:59Z',
           :name=>"GenePoint Lab Generators",
           :probability=>60.0,
           :sales_stage=>"Id. Decision Makers",
@@ -114,17 +120,19 @@ describe Entities::Opportunity do
       let(:mapped_connec) {
         {
           :Amount=>0.0,
-          :CloseDate=>"2015-12-15T23:00:00Z",
+          :CloseDate=>"2015-12-15",
           :Description=>"",
           :NextStep=>"",
           :OwnerId=>"20715521-7cd5-0133-db80-0620e3ce3a45",
           :Name=>"Test",
           :Probability=>23.0,
           :StageName=>"Prospecting",
-          :Type=>""
+          :Type=>"",
+          :AccountId=>'abc'
         }.with_indifferent_access
       }
 
+      before { allow(Entities::Opportunity).to receive(:get_org_id) { 'abc' } }
       it { expect(subject.map_to_external(connec)).to eql(mapped_connec) }
     end
   end
