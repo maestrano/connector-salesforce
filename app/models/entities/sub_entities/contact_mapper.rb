@@ -1,11 +1,6 @@
 class Entities::SubEntities::ContactMapper
   extend HashMapper
 
-  after_denormalize do |input, output|
-    output[:opts] = {'create_default_organization' => true}
-    output
-  end
-
   map from('title'), to('Salutation')
   map from('first_name'), to('FirstName')
   map from('last_name'), to('LastName'), default: 'Undefined'
