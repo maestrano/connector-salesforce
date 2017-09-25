@@ -12,7 +12,7 @@ gem 'figaro'
 gem 'uglifier', '>= 1.3.0'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-gem 'maestrano-connector-rails', '2.1.0'
+gem 'maestrano-connector-rails', '2.1.2'
 
 gem 'config'
 gem 'attr_encrypted', '~> 1.4.0'
@@ -36,9 +36,10 @@ group :production, :uat do
   gem 'rails_12factor'
 end
 
-group :test, :develpment do
+group :test, :development do
   gem 'activerecord-jdbcsqlite3-adapter', platforms: :jruby
   gem 'sqlite3', platforms: :ruby
+  gem 'pry-byebug'
 end
 
 group :test do
