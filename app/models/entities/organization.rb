@@ -36,7 +36,6 @@ class OrganizationMapper
 
   map from('name'),  to('Name')
   map from('industry'),  to('Industry')
-  map from('annual_revenue'), to('AnnualRevenue')
   map from('number_of_employees'), to('NumberOfEmployees')
 
   map from('address/billing/line1'), to('BillingStreet')
