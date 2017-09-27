@@ -108,7 +108,6 @@ describe Entities::Organization do
           :id=>[{:id=>"0012800000CaxiOAAR", :provider=>organization.oauth_provider, :realm=>organization.oauth_uid}],
           :name=>"Burlington Textiles Corp of America",
           :industry=>"Apparel",
-          :annual_revenue=>350000000.0,
           :number_of_employees=>9000,
           :address=>
           {
@@ -184,7 +183,6 @@ describe Entities::Organization do
         {
           :Name=>"GenePoint",
           :Industry=>"Biotechnology",
-          :AnnualRevenue=>30000000.0,
           :NumberOfEmployees=>265,
           :BillingStreet=>"345 Shoreline Park\nMountain View, CA 94043\nUSA",
           :BillingCity=>"Mountain View",
