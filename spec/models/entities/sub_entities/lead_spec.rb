@@ -97,9 +97,6 @@ describe Entities::SubEntities::Lead do
 
       let(:output_hash) {
         {
-          :opts => {
-            :attach_to_organization => "Jackson Controls"
-          },
           :id => [{"id"=>"00Q28000003FcanEAC", "provider"=>organization.oauth_provider, "realm"=>organization.oauth_uid}],
           :title=>"Mr",
           :first_name=>"Jeff",
@@ -107,6 +104,7 @@ describe Entities::SubEntities::Lead do
           :is_lead=>true,
           :is_customer=>false,
           :job_title=>"SVP, Procurement",
+          :company_name=>"Jackson Controls",
           :address_work=>
           {
             :billing=>{:country=>"Taiwan, Republic Of China"}
