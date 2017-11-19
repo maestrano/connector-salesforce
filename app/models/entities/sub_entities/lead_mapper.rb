@@ -13,7 +13,6 @@ class Entities::SubEntities::LeadMapper
     output[:is_lead] = true
     output[:is_customer] = false
     output[:lead_status] = input[:Status]
-    output[:opts] = { attach_to_organization: input['Company']} unless input['Company'].blank?
     output
   end
 
@@ -21,6 +20,7 @@ class Entities::SubEntities::LeadMapper
   map from('first_name'), to('FirstName')
   map from('last_name'), to('LastName'), default: 'Undefined'
   map from('job_title'), to('Title')
+  map from('company_name'), to('Company')
 
   map from('address_work/billing/line1'), to('Street')
   map from('address_work/billing/city'), to('City')
