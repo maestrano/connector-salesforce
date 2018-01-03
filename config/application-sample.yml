@@ -1,10 +1,10 @@
-encryption_key1:
-encryption_key2:
+encryption_key1: fb998ce57b545e16b20b8b4f9fc9883c
+encryption_key2: 7a4dd2b59f9e197f146c6c93b8066d365ac72
 
 salesforce_client_id: SALESFORCE_CLIENT_ID
 salesforce_client_secret: SALESFORCE_CLIENT_SECRET
 
-REDIS_URL: redis://localhost:6379/0/connector-salesforce
+REDIS_URL: redis://localhost:6379/9
 
 MNO_DEVPL_HOST: https://developer-uat.maestrano.io
 MNO_DEVPL_API_PATH: /api/config/v1/marketplaces
