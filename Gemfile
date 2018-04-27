@@ -30,6 +30,8 @@ gem 'slim'
 # Redis caching
 gem 'redis-rails'
 
+gem 'newrelic_rpm'
+
 group :production, :uat do
   gem 'activerecord-jdbcmysql-adapter', platforms: :jruby
   gem 'mysql2', platforms: :ruby

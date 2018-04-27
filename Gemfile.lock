@@ -203,6 +203,7 @@ GEM
     multipart-post (2.0.0)
     mysql2 (0.4.10)
     netrc (0.11.0)
+    newrelic_rpm (5.0.0.342)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     oauth2 (1.4.0)
@@ -392,6 +393,7 @@ DEPENDENCIES
   maestrano-connector-rails (= 2.1.2)
   money
   mysql2
+  newrelic_rpm
   omniauth-salesforce
   pry-byebug
   puma
