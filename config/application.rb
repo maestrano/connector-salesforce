@@ -20,6 +20,15 @@ module ConnectorSalesforce
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
 
+    # Use Redis as cache store
+    config.cache_store = :redis_store, "#{ENV['REDIS_URL']}/cache" if ENV['REDIS_URL'].present?
+
+    # Use Redis for session store
+    config.session_store :redis_store, servers: ["#{ENV['REDIS_URL']}/session"] if ENV['REDIS_URL'].present?
+
+    # Use Sidekiq for background jobs
+    config.active_job.queue_adapter = :sidekiq
+
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
   end
